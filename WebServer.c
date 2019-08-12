@@ -15,7 +15,7 @@ static void send_response(struct mg_connection *c, double what) {
 
 static double get_x(struct http_message *req) {
     char s[32];
-    mg_get_http_var(&req->body, "X", s, sizeof(s));
+    mg_get_http_var(&req->body, "x", s, sizeof(s));
     return strtod(s, NULL);
 }
 
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
     mg_set_protocol_http_websocket(conn);
 
     //set document root to subdirectory ROOT
-    opts.document_root = ".";
+    opts.document_root = "/home/kyle/Dev/C++/mongoose_server/cmake-build-debug";
     {
         char *p = strrchr(argv[0], '/');
         if (p != NULL) {
